@@ -11,7 +11,7 @@ public class Webdriver {
             WebDriver driver = new ChromeDriver();
 
          //   driver.manage().timeouts.implicitylyWait(10, TimeUnit.SECONDS);
-        driver.get("https://www.youtube.com");
+        driver.get("https://nglsync.cengage.com/portal/Account/LogOn?ReturnUrl=%2fportal");
         // close the browser, driver.close();
     }
 }
