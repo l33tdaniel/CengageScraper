@@ -44,7 +44,7 @@ public class CengageDriver {
             System.out.println("got interrupted!");
         }
     }
-    private void enteringCreds(Webdriver driver) {
+    private void enteringCreds(WebDriver driver) {
         try {
             Scanner in = new Scanner(System.in);
             WebElement username = driver.findElement(By.id("UserName"));
@@ -53,16 +53,18 @@ public class CengageDriver {
             WebElement password = driver.findElement(By.id("Password"));
             System.out.println("What is your password?");
             password.sendKeys(in.nextLine());
+            Thread.sleep(10);
         }   catch(InterruptedException e) {
                 System.out.println("got interrupted!");
         }
     }
-    private void fillingCreds(Webdriver driver) {
+    public void fillingCreds(WebDriver driver) {
         try {
             WebElement username = driver.findElement(By.id("UserName"));
             System.out.println("username");
             WebElement password = driver.findElement(By.id("Password"));
             System.out.println("password");
+            Thread.sleep(10);
             }catch(Exception e) {
                 System.out.println(e + " happened, and this should also be deleted regardless");
         }
