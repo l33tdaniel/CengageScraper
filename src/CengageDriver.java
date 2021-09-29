@@ -17,10 +17,6 @@ public class CengageDriver {
         openPage(driver, link);
     }
 
-    public String getLink() {
-        return link;
-    }
-
     public void endThis() throws Exception {
         driver.quit();
     }
@@ -38,8 +34,8 @@ public class CengageDriver {
             school.sendKeys(Keys.DOWN);
             Thread.sleep(200);
             school.sendKeys(Keys.RETURN);
-            Thread.sleep(1000);
-
+            Thread.sleep(100);
+            fillingCreds(driver);
         } catch(InterruptedException e) {
             System.out.println("got interrupted!");
         }
@@ -53,20 +49,37 @@ public class CengageDriver {
             WebElement password = driver.findElement(By.id("Password"));
             System.out.println("What is your password?");
             password.sendKeys(in.nextLine());
-            Thread.sleep(10);
+            Thread.sleep(10);  
+            launchCourse(driver);
+            password.sendKeys(Keys.ENTER);
         }   catch(InterruptedException e) {
                 System.out.println("got interrupted!");
         }
     }
-    public void fillingCreds(WebDriver driver) {
+    private void fillingCreds(WebDriver driver) {
         try {
+            Thread.sleep(500);
             WebElement username = driver.findElement(By.id("UserName"));
-            System.out.println("username");
+            username.sendKeys("username");
+            Thread.sleep(400);
             WebElement password = driver.findElement(By.id("Password"));
-            System.out.println("password");
+            password.sendKeys("password");
             Thread.sleep(10);
+            password.sendKeys(Keys.ENTER);
+            launchCourse(driver);
             }catch(Exception e) {
                 System.out.println(e + " happened, and this should also be deleted regardless");
+        }
+    }
+    private void launchCourse(WebDriver driver) {
+        try{
+            Thread.sleep(2000);
+            WebElement launchClass = driver.findElement(By.id("course-8032155"));
+            launchClass.click();
+            // click onto the class and start the databsae.
+        }
+        catch(Exception e){
+            System.out.println(e);
         }
     }
 }
