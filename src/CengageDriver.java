@@ -60,10 +60,10 @@ public class CengageDriver {
         try {
             Thread.sleep(500);
             WebElement username = driver.findElement(By.id("UserName"));
-            username.sendKeys("username");
+            username.sendKeys("danielneugent");
             Thread.sleep(400);
             WebElement password = driver.findElement(By.id("Password"));
-            password.sendKeys("password");
+            password.sendKeys("Daniel0416!");
             Thread.sleep(10);
             password.sendKeys(Keys.ENTER);
             launchCourse(driver);
@@ -73,19 +73,39 @@ public class CengageDriver {
     }
     private void launchCourse(WebDriver driver) {
         try{
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             WebElement launchClass = driver.findElement(By.id("course-8032155"));
             launchClass.click();
-            // click onto the class and start the databsae.
+            //enterAssignment(driver);
         }
         catch(Exception e){
             System.out.println(e);
         }
     }
+    /*
+    private void enterAssignment(WebDriver driver) {
+        try{
+            String[] daniel = new String[7];
+            daniel[0] = "Unit 1: Law, Justice, and You";
+            daniel[1] = "Unit 2: Contract Law";
+            daniel[2] = "Unit 3: The Law of Sales";
+            daniel[3] = "Unit 4: Property Law";
+            daniel[4] = "Unit 5: Agency and Employment Law";
+            daniel[5] = "Unit 6: Legal of Business Organization";
+            daniel[6] = "Unit 7: Borrowing Money and Paying Bills";
+
+            Thread.sleep(3000);
+            for(int i = 0; i < daniel.length; i++) {
+                WebElement openTheAssignment = driver.findElement(By.xpath("//*[@id="topic-heading-1-1258893197"]/div/div[1]");
+                openTheAssignment.click();
+                Thread.sleep(800);
+            }
+        } catch(Exception e) {
+            System.out.println(e + " went wrong...");
+        }
+    }
+*/
 }
-
-
-
 
 
 
