@@ -5,3 +5,9 @@ public class Main {
 
     }
 }
+
+/*
+For the windows version of this program, we're currently running 
+chrome driver 94
+*/
+// don't forget to delete creds 

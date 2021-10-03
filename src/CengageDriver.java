@@ -11,7 +11,7 @@ public class CengageDriver {
 
     public CengageDriver(String link) {
         this.link = link;
-        System.setProperty("webdriver.chrome.driver", "/Users/danielneugent/Desktop/CodingProjects/CengageScraper/includedFiles/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\D\\Desktop\\Coding\\CengageScraperWindows\\includedFiles\\chromedriver.exe");
         // the following line is what will actually start the driver.
         driver = new ChromeDriver();
         openPage(driver, link);
@@ -82,41 +82,15 @@ public class CengageDriver {
             System.out.println(e);
         }
     }
-    /*
-    private void enterAssignment(WebDriver driver) {
-        try{
-            String[] daniel = new String[7];
-            daniel[0] = "Unit 1: Law, Justice, and You";
-            daniel[1] = "Unit 2: Contract Law";
-            daniel[2] = "Unit 3: The Law of Sales";
-            daniel[3] = "Unit 4: Property Law";
-            daniel[4] = "Unit 5: Agency and Employment Law";
-            daniel[5] = "Unit 6: Legal of Business Organization";
-            daniel[6] = "Unit 7: Borrowing Money and Paying Bills";
-
-            Thread.sleep(3000);
-            for(int i = 0; i < daniel.length; i++) {
-                WebElement openTheAssignment = driver.findElement(By.xpath("//*[@id="topic-heading-1-1258893197"]/div/div[1]");
-                openTheAssignment.click();
-                Thread.sleep(800);
-            }
-        } catch(Exception e) {
-            System.out.println(e + " went wrong...");
-        }
-    }
-*/
+   
 }
 
 
 
 /* 
 
-The purpose of this is to see if we can refactor what we already made
-instead of just dumping everything into one doc and trying to get it to work
-
-Started work on this on September 27th
-First started working on September 28th
-broke it again on 28th, but you've made a ton of progress
+Going to make a seerate class for the files database and you should also have the
+different chrome drivers for each of the chrome versions
 
 */
 // smrt name
