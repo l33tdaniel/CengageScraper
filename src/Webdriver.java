@@ -4,6 +4,10 @@ import java.util.Scanner;
 import org.openqa.selenium.*;
 import org.openqa.selenium.Keys;
 
+
+// THIS IS NO LONGER IN USE! THIS WAS THE ORIGINAL.
+
+
 public class Webdriver {
     public static void startTab() throws InterruptedException {
         Scanner in = new Scanner(System.in);
@@ -43,19 +47,4 @@ public class Webdriver {
         driver.close();
     
     }
-    /*
-    public static void OpeningAssignment() {
-        // the purpose of this is to be able to find a Unit header.
-        WebElement testingThis = driver.findElement(By.id("topic-heading-1-1258893112"));
-    }
-*/
-
 }
-       // id="topic-heading-1-1258893112
-        /*
-// test 
-        element = driver.find_element :xpath, '//input[@name="q"]'
-element.click();
-        WebElement launchClass = driver.findElement(By.id("course-8032155"));
-        */
-// only online kid to not get a 1

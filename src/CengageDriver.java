@@ -18,9 +18,11 @@ public class CengageDriver {
     }
 
     public void endThis() throws Exception {
+        // this will be used to close the driver once the program is done using it.
         driver.quit();
     }
     private void openPage(WebDriver driver, String link) {
+        // this opens the page and maximizes the window before closing transitioning to next function
         driver.get(link);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -28,6 +30,7 @@ public class CengageDriver {
     }
     private void enteringRockhurst(WebDriver driver){
         try {
+            // enters in what school you're going to
             WebElement school = driver.findElement(By.id("schoolSearchText"));
             school.sendKeys("ROCKHURST HIGH SCHOOL");     
             Thread.sleep(1000);
@@ -42,6 +45,7 @@ public class CengageDriver {
     }
     private void enteringCreds(WebDriver driver) {
         try {
+            // acquires your credentials
             Scanner in = new Scanner(System.in);
             WebElement username = driver.findElement(By.id("UserName"));
             System.out.println("What is your username?");
@@ -52,6 +56,8 @@ public class CengageDriver {
             Thread.sleep(10);  
             launchCourse(driver);
             password.sendKeys(Keys.ENTER);
+            // memory leaks!
+            in.close();
         }   catch(InterruptedException e) {
                 System.out.println("got interrupted!");
         }
@@ -72,11 +78,12 @@ public class CengageDriver {
         }
     }
     private void launchCourse(WebDriver driver) {
+        // launches course...
         try{
             Thread.sleep(1000);
             WebElement launchClass = driver.findElement(By.id("course-8032155"));
             launchClass.click();
-            //enterAssignment(driver);
+            //enterAssignment(driver); this will later be used the open the next assignment...
         }
         catch(Exception e){
             System.out.println(e);
