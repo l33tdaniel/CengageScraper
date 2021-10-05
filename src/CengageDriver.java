@@ -11,12 +11,11 @@ public class CengageDriver {
 
     public CengageDriver(String link) {
         this.link = link;
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\D\\Desktop\\Coding\\CengageScraperWindows\\includedFiles\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/Users/danielneugent/Desktop/CodingProjects/CengageScraper/includedFiles/chromedriver");
         // the following line is what will actually start the driver.
         driver = new ChromeDriver();
         openPage(driver, link);
     }
-
     public void endThis() throws Exception {
         // this will be used to close the driver once the program is done using it.
         driver.quit();
@@ -58,7 +57,7 @@ public class CengageDriver {
             password.sendKeys(Keys.ENTER);
             // memory leaks!
             in.close();
-        }   catch(InterruptedException e) {
+        }   catch(InterruptedException e){
                 System.out.println("got interrupted!");
         }
     }
@@ -89,15 +88,5 @@ public class CengageDriver {
             System.out.println(e);
         }
     }
-   
 }
-
-
-
-/* 
-
-Going to make a seerate class for the files database and you should also have the
-different chrome drivers for each of the chrome versions
-
-*/
 // smrt name

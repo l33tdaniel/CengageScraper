@@ -1,51 +1,42 @@
-import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
 public class Databasing {
     private String path;
-    private File writer;
-   public Databasing(String path) {
-    File writer = new File(path);
-    this.path = path;
-    createFile();
-   }
-   
-   public void createFile() {
-       // this will get a bit tricky.
-        if(this.writer.exists()) {
-            for(int i = 0; i < 10; i++){
-            try{
-                FileWriter daniel = new FileWriter(this.writer.getAbsolutePath());
-                daniel.write(System.getProperty( "line.separator" ));
-                daniel.write("testing something new");
-                daniel.write(System.getProperty("line.separator"));
-                daniel.close();
-            } catch(IOException e) {
-                System.out.println(e);
-            }
+    private FileWriter writer;
+    public Databasing(String path) {
+        try {
+            this.path = path;
+            this.writer = new FileWriter(path);
+            System.out.println("file initiated");
+        }catch (IOException e) {
+            System.out.println(e);
         }
+    }
+   public void writeFile() {
+        try {
+            this.writer.write("why won't this work?");
+            for(int i = 0; i < 5; i++) {
+                this.writer.write("hi");
+            }
+            this.writer.flush();
+        } catch(Exception e) {
+            System.out.print(e);
+        }
+    }
+    public void closeFile() {
+        // call this only when you're absolutely done.
+        try {
+            this.writer.close();
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 }
 
-
-
-
-
-
-
-
-
 /*
-    this returns true!
-        File test = new File("/Users/danielneugent/Desktop/CodingProjects/CengageScraper/includedFiles/Answers/Chapter27.txt");
-        System.out.println(test.exists());
+
+now hyou have to do a for each loop to loop through each of the questions inside of the assignment.
 
 
-
-
-
-Possible windows version 
-File myObj = new File("C:\\Users\\MyName\\filename.txt");
 
 */
