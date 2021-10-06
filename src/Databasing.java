@@ -23,7 +23,20 @@ public class Databasing {
             System.out.print(e);
         }
     }
-    public void closeFile() {
+    // overloading functions!!
+    public void writeFile(String text) {
+        try {
+            for(int i = 0; i < 25; i++)
+            System.out.println("WE IN HERE BABY");
+            // for some reason, we get to this point, but we're unable to actually write to the file. The function writeFile with no string works
+            // just fine though for some reason?
+            this.writer.write(text);
+            this.writer.flush();
+        } catch(Exception e) {
+            System.out.print(e);
+        }
+    }
+    private void closeFile() {
         // call this only when you're absolutely done.
         try {
             this.writer.close();
@@ -32,11 +45,8 @@ public class Databasing {
         }
     }
 }
-
 /*
 
-now hyou have to do a for each loop to loop through each of the questions inside of the assignment.
-
-
+Could you use a for each loop when looping through questions?
 
 */

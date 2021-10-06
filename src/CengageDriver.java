@@ -8,23 +8,25 @@ import org.openqa.selenium.By;
 public class CengageDriver {
     private String link;
     private WebDriver driver;
+    // over time you're going to change the link to databasing to be something that is unique to each assignment
+    private Databasing daniel = new Databasing("/Users/danielneugent/Desktop/CodingProjects/CengageScraper/includedFiles/Answers/Chapter27.txt");
 
     public CengageDriver(String link) {
         this.link = link;
         System.setProperty("webdriver.chrome.driver", "/Users/danielneugent/Desktop/CodingProjects/CengageScraper/includedFiles/chromedriver");
         // the following line is what will actually start the driver.
         driver = new ChromeDriver();
-        openPage(driver, link);
     }
     public void endThis() throws Exception {
         // this will be used to close the driver once the program is done using it.
         driver.quit();
     }
-    private void openPage(WebDriver driver, String link) {
+    public void openPage(String link) {
         // this opens the page and maximizes the window before closing transitioning to next function
         driver.get(link);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        findImportantData();
         enteringRockhurst(driver);
     }
     private void enteringRockhurst(WebDriver driver){
@@ -37,7 +39,7 @@ public class CengageDriver {
             Thread.sleep(200);
             school.sendKeys(Keys.RETURN);
             Thread.sleep(100);
-            fillingCreds(driver);
+            fillingCreds();
         } catch(InterruptedException e) {
             System.out.println("got interrupted!");
         }
@@ -46,45 +48,53 @@ public class CengageDriver {
         try {
             // acquires your credentials
             Scanner in = new Scanner(System.in);
-            WebElement username = driver.findElement(By.id("UserName"));
+            WebElement username = this.driver.findElement(By.id("UserName"));
             System.out.println("What is your username?");
             username.sendKeys(in.nextLine());
-            WebElement password = driver.findElement(By.id("Password"));
+            WebElement password = this.driver.findElement(By.id("Password"));
             System.out.println("What is your password?");
             password.sendKeys(in.nextLine());
             Thread.sleep(10);  
-            launchCourse(driver);
+            launchCourse();
             password.sendKeys(Keys.ENTER);
             // memory leaks!
             in.close();
-        }   catch(InterruptedException e){
+            }catch(InterruptedException e){
                 System.out.println("got interrupted!");
         }
     }
-    private void fillingCreds(WebDriver driver) {
+    private void fillingCreds() {
         try {
             Thread.sleep(500);
-            WebElement username = driver.findElement(By.id("UserName"));
+            WebElement username = this.driver.findElement(By.id("UserName"));
             username.sendKeys("username");
             Thread.sleep(400);
-            WebElement password = driver.findElement(By.id("Password"));
+            WebElement password = this.driver.findElement(By.id("Password"));
             password.sendKeys("password");
             Thread.sleep(10);
             password.sendKeys(Keys.ENTER);
-            launchCourse(driver);
+            launchCourse();
             }catch(Exception e) {
                 System.out.println(e + " happened, and this should also be deleted regardless");
         }
     }
-    private void launchCourse(WebDriver driver) {
+    private void launchCourse() {
         // launches course...
         try{
             Thread.sleep(1000);
-            WebElement launchClass = driver.findElement(By.id("course-8032155"));
+            WebElement launchClass = this.driver.findElement(By.id("course-8032155"));
             launchClass.click();
             //enterAssignment(driver); this will later be used the open the next assignment...
         }
         catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    private void findImportantData() {
+        try {
+           // WebElement data = this.driver.findElement(By.id("hi"));
+           daniel.writeFile(driver.getPageSource());
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
