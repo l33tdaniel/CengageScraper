@@ -45,8 +45,3 @@ public class Databasing {
         }
     }
 }
-/*
-
-Could you use a for each loop when looping through questions?
-
-*/
