@@ -66,10 +66,10 @@ public class CengageDriver {
         try {
             Thread.sleep(500);
             WebElement username = this.driver.findElement(By.id("UserName"));
-            username.sendKeys("danielneugent");
+            username.sendKeys("username");
             Thread.sleep(400);
             WebElement password = this.driver.findElement(By.id("Password"));
-            password.sendKeys("Daniel0416!");
+            password.sendKeys("password");
             Thread.sleep(10);
             password.sendKeys(Keys.ENTER);
             launchCourse();
