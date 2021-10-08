@@ -16,4 +16,20 @@ public class Main {
       
     }
 }
+/********************
+ * You have to have a recursion thing for each time you open a new assignment
+ * You have to have some sort of system to parse through and store the information into maybe a string?
+ * You have to have a loop that can go through each part
+ * You have to make a string of each test's link
+ * RECURSION RECURSION RECURSION!
+ * Automate databasing so that it can make all of the files itself. It shouldn't need help
+ * This is about to get realllllll fun
+ * 
+ ********************/
+
+
+
+
+
+
 // sexy code is important!

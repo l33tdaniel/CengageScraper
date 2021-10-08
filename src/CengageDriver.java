@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.By;
 
 public class CengageDriver {
+    private String[] websiteURLS = {" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ",  };
     private String link;
     private WebDriver driver;
     // over time you're going to change the link to databasing to be something that is unique to each assignment
@@ -27,13 +28,19 @@ public class CengageDriver {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         enteringRockhurst(driver);
+
+        // String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.RETURN);
+//driver.findElement(By.linkText("urlLink")).sendKeys(selectLinkOpeninNewTab);
     }
+
+
+
     private void enteringRockhurst(WebDriver driver){
         try {
             // enters in what school you're going to
             WebElement school = driver.findElement(By.id("schoolSearchText"));
-            school.sendKeys("ROCKHURST HIGH SCHOOL");     
-            Thread.sleep(1000);
+            school.sendKeys("ROCKHURST HIGH SCHOOL");   
+            Thread.sleep(1200);
             school.sendKeys(Keys.DOWN);
             Thread.sleep(200);
             school.sendKeys(Keys.RETURN);
@@ -66,10 +73,10 @@ public class CengageDriver {
         try {
             Thread.sleep(500);
             WebElement username = this.driver.findElement(By.id("UserName"));
-            username.sendKeys("username");
+            username.sendKeys("danielneugent");
             Thread.sleep(400);
             WebElement password = this.driver.findElement(By.id("Password"));
-            password.sendKeys("password");
+            password.sendKeys("Daniel0416!");
             Thread.sleep(10);
             password.sendKeys(Keys.ENTER);
             launchCourse();
@@ -85,13 +92,11 @@ public class CengageDriver {
             launchClass.click();
             Thread.sleep(500);
             switchTabs();
-            //enterAssignment(driver); this will later be used the open the next assignment...
         }
         catch(Exception e){
             System.out.println(e);
         }
     }
-
     // this function is what we used in order to get something out of the html and put it into the txt file
     private void findImportantData() {
         try {
@@ -104,21 +109,14 @@ public class CengageDriver {
 
     private void switchTabs() {
         try {
+            Thread.sleep(10000);
+            // this opens up the page, but now we just have to switch to it
+            driver.get("https://ng.cengage.com/static/nb/ui/evo/index.html?eISBN=9781305668881&id=1258893579&snapshotId=2537071&");
             Thread.sleep(2000);
-           // this for some reason through an error that I haveto fix later driver.get("https://ng.cengage.com/static/nb/ui/evo/index.html?eISBN=9781305668881&id=1258893558&snapshotId=2537071&");
-            Thread.sleep(2000);
-            //Keys.chord(Keys.COMMAND, "w");
+            driver.switchTo().window(driver.getWindowHandle());
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-
 }
 // smrt name
-/*abstractString os = System.getProperty("os.name");
-if (os.equals("WINDOWS")){
-   Keys.chord(Keys.CONTROL, "a");
-}else{
-   Keys.chord(Keys.COMMAND, "a");
-}
-*/
