@@ -5,7 +5,6 @@ public class Main {
 
       databaseMaker theBeast = new databaseMaker();
       // theBeast.testMakeFolder(); don't run this unless you want to make a bunch of stuff
-
       // this opens up the driver to the site that we need to get to.
         String CengageLink = "https://nglsync.cengage.com/portal/Account/LogOn?ReturnUrl=%2fportal";
         CengageDriver Cengage = new CengageDriver(CengageLink);
@@ -13,7 +12,6 @@ public class Main {
         
       // this gets us to be able to open up the file in order to write to it.
         Databasing addingInAnswers = new Databasing("/Users/danielneugent/Desktop/CodingProjects/CengageScraper/includedFiles/Answers/Chapter27.txt");
-      
     }
 }
 /********************
@@ -26,10 +24,5 @@ public class Main {
  * This is about to get realllllll fun
  * 
  ********************/
-
-
-
-
-
 
 // sexy code is important!

@@ -76,7 +76,7 @@ public class CengageDriver {
             username.sendKeys("username");
             Thread.sleep(400);
             WebElement password = this.driver.findElement(By.id("Password"));
-            password.sendKeys("password");
+            password.sendKeys("password!");
             Thread.sleep(10);
             password.sendKeys(Keys.ENTER);
             launchCourse();
@@ -106,17 +106,57 @@ public class CengageDriver {
             System.out.println(e);
         }
     }
-
     private void switchTabs() {
         try {
-            Thread.sleep(10000);
-            // this opens up the page, but now we just have to switch to it
-            driver.get("https://ng.cengage.com/static/nb/ui/evo/index.html?eISBN=9781305668881&id=1258893579&snapshotId=2537071&");
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             driver.switchTo().window(driver.getWindowHandle());
+            testTime();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
+    private void testTime() {
+        try {
+            for(int i = 0; i < websiteURLS.length; i++) {
+                Thread.sleep(2000);
+                driver.get(websiteURLS[i]);
+                Thread.sleep(7000);
+                correctAnswers(); 
+                // right below here is where we start to get tripped up
+                
+                WebElement startAssignment = this.driver.findElement(By.linkText("Resume Assignment Now"));
+                // start button isn't working and then because of that it isn't going ot the next assignments after that
+                startAssignment.click();
+                correctAnswers();
+                // org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#startButton"}
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    private void correctAnswers() {
+        System.out.println("hi");
+    }
 }
 // smrt name
+/*
+classes vs ids - what's the difference in css?
+can you have multiple of each? what does that look like?
+things like padding 0 
+margin 0
+what's the difference between padding and margin
+why do we put certain things? think of APCSA void / static
+doing our own work so that we're learning. For me, it's not helpful when 
+you implement your idea and then I'm supposed to carry that on
+A perfect example of this happening was the battleship project
+no notes or comments
+
+
+taking a break to google without an explanation and coming back to try and understand
+sometimes you get into the zone and don't commentate on what you're doing
+Why do you sometimes put a colon when labeling things in your csss
+
+copying seems easy but you don't always write things top down, so we end up being screwed because
+we don't know what you've added in since it's up at somwhere else we haven't looked
+at for twenty minutes
+*/
