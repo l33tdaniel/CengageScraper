@@ -28,13 +28,7 @@ public class CengageDriver {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         enteringRockhurst(driver);
-
-        // String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.RETURN);
-//driver.findElement(By.linkText("urlLink")).sendKeys(selectLinkOpeninNewTab);
     }
-
-
-
     private void enteringRockhurst(WebDriver driver){
         try {
             // enters in what school you're going to
