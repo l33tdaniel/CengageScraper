@@ -1,8 +1,8 @@
 import java.io.File;
 public class Main {
     public static void main(String[] args) throws Exception {
+      Databasing addingInAnswers = new Databasing("/Users/danielneugent/Desktop/CodingProjects/CengageScraper/includedFiles/Answers/Chapter27.txt");
       // this is what makes all of the folders for the files
-
       databaseMaker theBeast = new databaseMaker();
       // theBeast.testMakeFolder(); don't run this unless you want to make a bunch of stuff
       // this opens up the driver to the site that we need to get to.
@@ -11,7 +11,7 @@ public class Main {
         Cengage.openPage(CengageLink);
         
       // this gets us to be able to open up the file in order to write to it.
-        Databasing addingInAnswers = new Databasing("/Users/danielneugent/Desktop/CodingProjects/CengageScraper/includedFiles/Answers/Chapter27.txt");
+    
     }
 }
 /********************
@@ -21,8 +21,6 @@ public class Main {
  * You have to make a string of each test's link
  * RECURSION RECURSION RECURSION!
  * Automate databasing so that it can make all of the files itself. It shouldn't need help
- * This is about to get realllllll fun
- * 
  ********************/
 
 // sexy code is important!

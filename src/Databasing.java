@@ -28,8 +28,6 @@ public class Databasing {
         try {
             for(int i = 0; i < 25; i++)
             System.out.println("WE IN HERE BABY");
-            // for some reason, we get to this point, but we're unable to actually write to the file. The function writeFile with no string works
-            // just fine though for some reason?
             this.writer.write(text);
             this.writer.flush();
         } catch(Exception e) {
@@ -45,9 +43,3 @@ public class Databasing {
         }
     }
 }
-
-/*
-
-
-
-*/
